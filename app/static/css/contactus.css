@@ -1,0 +1,260 @@
+html,
+body {
+
+    font-family: 'Comfortaa', cursive;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+
+}
+
+
+
+#nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #D4D4D4;
+}
+
+#nav p {
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+}
+
+#nav li {
+    float: left;
+}
+
+#nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+
+
+
+#background {
+    width: 100%;
+    height: 1400px;
+    margin-top: 0px;
+    background-image: url('../images/HOME.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+}
+
+#header {
+    height: 300px;
+    background-color: #DDDDDD;
+    margin: 0;
+    padding: 0
+}
+
+#headertext {
+    position: relative;
+    top: 40%;
+
+
+    text-align: center;
+}
+
+/* Style inputs with type="text", select elements and textareas */
+input[type=text],
+select,
+textarea,
+input[type=tel],
+input[type=email] {
+    width: 100%;
+    /* Full width */
+    padding: 12px;
+    /* Some padding */
+    border: 1px solid #ccc;
+    /* Gray border */
+    border-radius: 4px;
+    /* Rounded borders */
+    box-sizing: border-box;
+    /* Make sure that padding and width stays in place */
+    margin-top: 6px;
+    /* Add a top margin */
+    margin-bottom: 16px;
+    /* Bottom margin */
+    resize: vertical
+        /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+    background-color: #c5c5c5;
+    color: #000;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+    background-color: #000;
+    color: #fff
+}
+
+/* Add a background color and some padding around the form */
+.container {
+
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 400px
+}
+
+.left {
+
+    padding: 20;
+    width: 50%;
+    display: block;
+    float: left;
+}
+
+.right {
+    padding: 20;
+    width: 50%;
+    display: block;
+    float: right;
+}
+
+.footer {
+    background-color: #D4D4D4;
+    display: flex;
+}
+
+.logo {
+    width: 20%;
+}
+
+#footer .column {
+    width: 27%;
+}
+
+#box4 {
+    padding-top: 20px;
+    margin-top: 20px;
+    height: 200px;
+    width: 300px;
+    background-color: #f2f2f2;
+
+}
+
+@media screen and (max-width: 600px) {
+
+
+    .right {
+
+
+
+        width: 100%;
+        display: inline;
+        float: none;
+    }
+
+    .left {
+        width: 100%;
+        display: inline;
+        float: none;
+
+    }
+
+    .container {
+
+        background-color: #f2f2f2;
+        padding: 20px;
+        width: 250px
+    }
+
+    /* Style inputs with type="text", select elements and textareas */
+    input[type=text],
+    select,
+    textarea,
+    input[type=tel],
+    input[type=email] {
+        width: 170px;
+        /* Full width */
+        padding: 12px;
+        /* Some padding */
+        border: 1px solid #ccc;
+        /* Gray border */
+        border-radius: 4px;
+        /* Rounded borders */
+        box-sizing: border-box;
+        /* Make sure that padding and width stays in place */
+        margin-top: 6px;
+        /* Add a top margin */
+        margin-bottom: 16px;
+        /* Bottom margin */
+        resize: vertical
+            /* Allow the user to vertically resize the textarea (not horizontally) */
+    }
+
+    form {
+        width: 290px;
+    }
+
+    label {
+        font-size: 11pt
+    }
+}
+
+@media screen and (max-width: 768px) {
+    form {
+        width: 300px;
+    }
+
+    .container {
+
+        background-color: #f2f2f2;
+        padding: 20px;
+        width: 300px
+    }
+
+    /* Style inputs with type="text", select elements and textareas */
+    input[type=text],
+    select,
+    textarea,
+    input[type=tel],
+    input[type=email] {
+        width: 200px;
+        /* Full width */
+        padding: 12px;
+        /* Some padding */
+        border: 1px solid #ccc;
+        /* Gray border */
+        border-radius: 4px;
+        /* Rounded borders */
+        box-sizing: border-box;
+        /* Make sure that padding and width stays in place */
+        margin-top: 6px;
+        /* Add a top margin */
+        margin-bottom: 16px;
+        /* Bottom margin */
+        resize: vertical
+            /* Allow the user to vertically resize the textarea (not horizontally) */
+    }
+}

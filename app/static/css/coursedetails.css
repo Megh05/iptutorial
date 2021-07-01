@@ -1,0 +1,100 @@
+html,
+body {
+
+    font-family: 'Comfortaa', cursive;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+
+}
+
+
+
+#nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #D4D4D4;
+}
+
+#nav p {
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+}
+
+#nav li {
+    float: left;
+}
+
+#nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+
+#header {
+    height: 300px;
+    background-color: #DDDDDD;
+    margin: 0;
+    padding: 0
+}
+
+#headertext {
+    position: relative;
+    top: 40%;
+
+
+    text-align: center;
+}
+
+.footer {
+    background-color: #D4D4D4;
+    display: flex;
+}
+
+.logo {
+    width: 20%;
+}
+
+#footer .column {
+    width: 27%;
+}
+
+
+#box {
+
+    padding: 20;
+    height: 340px;
+    width: 400px;
+    background-color: #f2f2f2;
+    text-align: right;
+    float: right;
+
+}
+
+#box4 {
+
+    height: 200px;
+    width: 300px;
+    background-color: #f2f2f2;
+
+}

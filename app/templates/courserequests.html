@@ -1,0 +1,114 @@
+<!doctype html>
+<html> 
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/payments.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/courserequests.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Open+Sans&display=swap" rel="stylesheet">
+
+<title> IP tutorials </title>
+</head>
+<body >
+    <div id="nav" >
+        <p><img src=''width="30" height="30">IP tutorials</p>
+        <ul>
+            <li style="text-align:right;"> <a href="{{ url_for('admindashboard') }}"> Home </a></li>
+            <div class="dropdown">
+                <button class="dropbtn">Information
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="{{ url_for('tutorcourses') }}">Courses</a>
+                  <a href="{{ url_for('projectdetails') }}">Projects</a>
+                  <a href="{{ url_for('studentdetails') }}">Students</a>
+                  <a href="{{ url_for('tutordetails') }}">Tutors</a>
+                
+                 
+                
+                </div></div>
+                <div class="dropdown">
+                    <button class="dropbtn">Other
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                    
+                      <a href="{{ url_for('adminsupportpage') }}">Support</a>
+                      <a href="{{ url_for('payment') }}">Payments</a>
+                      <a href="{{ url_for('courserequests') }}">Requests</a>
+               
+                    </div></div>
+                    
+                    <li style="text-align:right;">  <a href="{{ url_for('logout') }}">Log out</a></li>
+        </ul>
+    </div>
+    
+
+ <!-- <div id="background"> -->
+ <section>
+     <div id="header" style="margin-bottom: 10%;">
+<div id="headertext">Course requests</div>
+ </div>
+</section  >
+<div style="margin-bottom: 10%;padding-bottom: 15%;margin-left: 2%;">
+    <table>
+        <tr>
+        {% for course in course %}
+         
+          <td><h3>Course name:</h3></td>
+          <td>{{course.name}}</td></tr>
+          <td><h3>Course description:</h3></td>
+          <td>{{course.description}}</td></tr>
+          <td><h3>Chapters:</h3></td>
+          <td>{{course.chapters}}</td></tr>
+          <td><h3>Status:</h3></td>
+          <td>{{course.status}}</td></tr>
+          <tr><td><form method="post" action="/confirmcourse"><input type="submit" name="confirmcourse" id="confirmcourse" value="Confirm course"></input></form></td>
+        </tr>
+        {% endfor %}
+      </table>
+      {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+  </ul>
+  {% endif %}
+  {% endwith %}
+  {% block content %}{% endblock %}
+</div>
+
+<div style="background-color: #d4d4d4;">
+    <footer style="background-color: #d4d4d4;">
+      <div style="position:relative;background-color:#d4d4d4" class="footer" id="footer">
+        <div class="logo">
+          <p style="font-size: 10pt;"><img src='' width="30" height="30" align="left" style="display: inline-block;">IP tutorials</p>
+        </div>
+        <div class="column">
+          <h3>Pages</h3>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+        </div>
+        <div class="column">
+          <h3>Pages</h3>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+  
+        </div>
+        <div class="column">
+          <h3>Pages</h3>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>

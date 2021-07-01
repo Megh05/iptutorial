@@ -1,0 +1,140 @@
+<!doctype html>
+<html> 
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/booksession.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Open+Sans&display=swap" rel="stylesheet">
+
+<title> IP tutorials </title>
+</head>
+<body >
+  <div id="nav" >
+    <p><img src=' 'width="30" height="30">IP tutorials</p>
+    <ul>
+        <li style="text-align:right;"> <a href="{{ url_for('tutordashboard') }}"> Home </a></li>
+        <div class="dropdown">
+            <button class="dropbtn">Work
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="{{ url_for('tutorcourses') }}">Courses</a>
+              <a href="{{url_for('tutorprojects')}}">Projects</a>
+              <a href="{{ url_for('sessions') }}">Sessions</a>
+              <a href="{{ url_for('content') }}">Content</a>
+              <a href="{{ url_for('meeting') }}">Meeting</a>
+            
+            </div></div>
+            <div class="dropdown">
+                <button class="dropbtn">Other
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                
+                  <a href="{{ url_for('supportpage') }}">Support</a>
+                  <a href="{{ url_for('messages') }}">Messages</a>
+                  <a href="{{ url_for('payment') }}">Payments</a>
+                </div></div>
+                <div class="dropdown">
+                    <button class="dropbtn">Account
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                      <a href="{{ url_for('studentprofile') }}">Profile</a>
+                      <a href="{{ url_for('studentaccount') }}">Account details</a>
+                      <a href="{{ url_for('studentsettings') }}">Settings</a>
+                      <a href="{{ url_for('logout') }}">Log out</a>
+                      
+                    </div></div>
+       
+    </ul>
+</div>
+ <!-- <div id="background"> -->
+ <section>
+     <div id="header" style="margin-bottom: 10%;">
+<div id="headertext">Book session</div>
+ </div>
+</section  >
+<div style="margin-left:5%;margin-bottom: 10%;">
+<table>
+    <form method='post' action=''>
+     <div class="container">
+      {{ form.hidden_tag() }}
+  <tr>   <p>
+     <td> <h3>  {{ form.sessionname.label }}</h3></td><br>
+       <td> {{ form.sessionname(size=100) }}</td><br>
+        {% for error in form.sessionname.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p></tr> 
+ 
+  <tr>   <p>
+     <td>  <h3> {{ form.date.label }}</h3></td><br>
+       <td> {{ form.date(size=50) }}</td><br>
+        {% for error in form.date.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p></tr> 
+     <tr>   <p>
+     <td><h3>   {{ form.time.label }}</h3></td><br>
+       <td> {{ form.time(size=50) }}</td><br>
+        {% for error in form.time.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p></tr> 
+     <tr>   <p>
+     <td>  <h3> {{ form.duration.label }}</h3></td><br>
+       <td> {{ form.duration(size=50) }}</td><br>
+        {% for error in form.duration.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p></tr> 
+     <tr>   <p>
+     <td>  <h3> {{ form.coursename.label }}</h3></td><br>
+       <td> {{ form.coursename(size=50) }}</td><br>
+        {% for error in form.coursename.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p></tr> 
+    
+<tr><td>  <p>{{ form.submit() }}</p></td></tr> 
+
+</div>
+</form>
+</table>
+</div>
+
+<div style="background-color: #d4d4d4;">
+    <footer style="background-color: #d4d4d4;">
+      <div style="position:relative;background-color:#d4d4d4" class="footer" id="footer">
+        <div class="logo">
+          <p style="font-size: 10pt;"><img src='' width="30" height="30" align="left" style="display: inline-block;">IP tutorials</p>
+        </div>
+        <div class="column">
+          <h3>Pages</h3>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+        </div>
+        <div class="column">
+          <h3>Pages</h3>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+  
+        </div>
+        <div class="column">
+          <h3>Pages</h3>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!doctype html>
+<html> 
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/adminsupportpage.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Open+Sans&display=swap" rel="stylesheet">
+
+<title> IP tutorials</title>
+</head>
+<body >
+    <div id="nav" >
+        <p><img src=''width="30" height="30">IP tutorials</p>
+        <ul>
+            <li style="text-align:right;"> <a href="{{ url_for('admindashboard') }}"> Home </a></li>
+            <div class="dropdown">
+                <button class="dropbtn">Information
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="{{ url_for('tutorcourses') }}">Courses</a>
+                  <a href="{{ url_for('projectdetails') }}">Projects</a>
+                  <a href="{{ url_for('studentdetails') }}">Students</a>
+                  <a href="{{ url_for('tutordetails') }}">Tutors</a>
+                
+                 
+                
+                </div></div>
+                <div class="dropdown">
+                    <button class="dropbtn">Other
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                    
+                      <a href="{{ url_for('adminsupportpage') }}">Support</a>
+                      <a href="{{ url_for('payment') }}">Payments</a>
+                      <a href="{{ url_for('courserequests') }}">Requests</a>
+               
+                    </div></div>
+                    
+                    <li style="text-align:right;">  <a href="{{ url_for('logout') }}">Log out</a></li>
+        </ul>
+    </div>
+    
+    
+ <!-- <div id="background"> -->
+ <section>
+     <div id="header" style="margin-bottom: 10%;">
+  
+    
+            
+      
+      
+      
+<div id="headertext">Support tickets</div>
+ </div>
+</section  >
+<div style="margin-left:5%;margin-bottom: 10%;"  >
+  
+<table > {% for supportticket in supportticket %}
+     
+     <tr><td> <h3 >Support ticket:</h3>   </td>
+     <td><p >{{supportticket.ticketname}}</p></td> 
+     
+    </tr>
+
+ 
+      <tr> <td><h3 > Date:</h3></td> 
+      <td> {{supportticket.date}}</td>
+    </tr>
+       <tr> <td><h3 > Message:</h3></td>
+       <td> {{supportticket.message}}</td>
+    </tr>
+     <tr><td>  <h3 > Name:</h3></td> 
+     <td> {{supportticket.sendername}}</td>
+    </tr>
+       <tr><td><h3 > Email address:</h3></td>
+       <td> {{supportticket.email}}</td></tr> 
+       <tr><td><h3 > Phone number:</h3></td>
+        <td> {{supportticket.phone}}</td></tr>
+     {% endfor %}
+      <form method="POST" action="">
+       {{ form.hidden_tag() }}
+        <tr>   <p>
+     <td>  <h3> {{ form.response.label }}</h3></td><br>
+       <td> {{ form.response(cols="47", rows="10") }}</td><br>
+        {% for error in form.response.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p></tr> 
+  
+        
+ <tr><td>  <p>{{ form.submit() }}</p></td></tr> 
+ </form>
+   </table>
+    </div>
+
+<div style="margin-left:5%;margin-bottom: 10%;"  >
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+  </ul>
+  {% endif %}
+  {% endwith %}
+  {% block content %}{% endblock %}
+      
+</div>
+<div style="background-color: #d4d4d4;">
+    <footer style="background-color: #d4d4d4;">
+      <div style="position:relative;background-color:#d4d4d4" class="footer" id="footer">
+        <div class="logo">
+          <p style="font-size: 10pt;"><img src='' width="30" height="30" align="left" style="display: inline-block;">IP tutorials</p>
+        </div>
+        <div class="column">
+          <h3>Pages</h3>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+        </div>
+        <div class="column">
+          <h3>Pages</h3>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+  
+        </div>
+        <div class="column">
+          <h3>Pages</h3>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>

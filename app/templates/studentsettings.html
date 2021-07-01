@@ -1,0 +1,206 @@
+
+<!doctype html>
+<html> 
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/studentsettings.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Open+Sans&display=swap" rel="stylesheet">
+
+<title> IP tutorials </title>
+</head>
+<body >
+  <div id="nav" >
+        <p><img src=' 'width="30" height="30">IP tutorials</p>
+        <ul>
+            <li style="text-align:right;"> <a href="{{ url_for('studentdashboard') }}"> Home </a></li>
+            <div class="dropdown">
+                <button class="dropbtn">Work
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="{{ url_for('courseprogress') }}">Courses</a>
+                  <a href="{{ url_for('projectprogress') }}">Projects</a>
+                
+                </div></div>
+                <div class="dropdown">
+                    <button class="dropbtn">Other
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                    
+                      <a href="{{ url_for('certificates') }}">Certificates</a>
+                      <a href="{{ url_for('supportpage') }}">Support</a>
+                      <a href="{{ url_for('messages') }}">Messages</a>
+                      <a href="{{ url_for('payment') }}">Payments</a>
+                    </div></div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Account
+                          <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                          <a href="{{ url_for('studentprofile') }}">Profile</a>
+                          <a href="{{ url_for('studentaccount') }}">Account details</a>
+                          <a href="{{ url_for('studentsettings') }}">Settings</a>
+                          <a href="{{ url_for('logout') }}">Log out</a>
+                          
+                        </div></div>
+           
+        </ul>
+    </div>
+ <!-- <div id="background"> -->
+ <section>
+     <div id="header" style="margin-bottom: 10%;">
+<div id="headertext">Student settings</div>
+ </div>
+</section  >
+<div  style="margin-left:5%;margin-bottom: 10%;">
+  
+     <form action="" method="post" >
+   {{ form.hidden_tag() }}
+   
+    <div class="container" >
+    <table>
+     <div style="padding-bottom:5%">
+      <tr><td>  <h3>Change password:</h3></td></tr>
+     <tr>
+      <p>
+         <td>   {{ form.password.label }} </td>
+       <td>     {{ form.password(size=32) }} </td>
+            {% for error in form.password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+     </tr>  
+      <tr>
+      </div>
+      <p>
+         <td>   {{ form.password2.label }} </td>
+       <td>     {{ form.password2(size=32) }} </td>
+            {% for error in form.password2.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+     </tr>    
+       <div style="padding-bottom:5%">
+  <tr><td>
+        <h3> Change email address:</h3></td></tr>
+       <tr>
+      <p>
+         <td>   {{ form.email.label }}</td>
+        <td>    {{ form.email(size=32) }} </td>
+            {% for error in form.email.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+     </tr> 
+        <tr>
+      <p>
+         <td>   {{ form.email2.label }}</td>
+        <td>    {{ form.email2(size=32) }} </td>
+            {% for error in form.email2.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+     </tr> 
+       <tr><td>
+       <p><input type="submit" id="savedetails" name="savedetails" value="Save details">
+
+</p></tr></td>
+ </div>
+</table>
+</form>
+ <p> {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+  </ul>
+  {% endif %}
+  {% endwith %}
+  {% block content %}{% endblock %}
+     </p>
+     <table>
+ <div style="padding-bottom:5%">
+ <tr><td>
+        <h3>Verify account:</h3></td></tr>
+        <form action="/verify" method="POST">
+       <tr><td style="width:220px"> <label style="margin-right:6.3%">Enter email address:</label></td><td><input style="margin-right:2%;width:260px" type="email" name="email"></td></tr>
+      <tr><td>  <input type="submit" value="Send verification email"></td></tr></form>
+      
+ </div>
+ </table>
+ <table>
+ <div style="padding-bottom:5%">
+     <tr><td> <h3>Login activity:</h3></td></tr>
+     <tr><td> <b><u><i><p style="display: inline-block; margin-right:13%;text-decoration: underline;">Location:</p></i></u></b></td><td><p style="display: inline-block;"> London</p><br></td></tr>
+     <tr><td> <b><u><i><p style="display: inline-block; margin-right:12%;text-decoration: underline;">Date/Time:</p></i></u></b></td><td><p style="display: inline-block;"> 8/2/21 10:00</p><br></td></tr>
+     <tr><td> <b><u><i><p style="display: inline-block; margin-right:14.5%;text-decoration: underline;">Device:</p></i></u></b></td><td><p style="display: inline-block;"> Iphone 11</p></td></tr>
+
+       </div>
+       </table>
+       <table>
+       <div style="padding-bottom:5%">
+     <tr><td> <h3>Notifications:</h3></tr></td>
+      <div style="margin-left:19%" >
+      
+    <tr><td>  <label style="margin-right:30px">Feedback  </label></td><td> <input type="checkbox"><br></td></tr>
+    <tr><td>  <label style="margin-right:3px">New message</label></td><td><input type="checkbox"><br></td></tr>
+    <tr><td>  <label style="margin-right:73px">Mark</label></td><td><input type="checkbox"><br></td></tr>
+    <tr><td>  <label style="margin-right:10px">New projects</label></td><td><input type="checkbox"><br></td></tr>
+    <tr><td>  <label style="margin-right:72px">Class</label></td><td><input type="checkbox"><br></td></tr>
+    </table>
+</div>
+
+ 
+   
+  
+
+<table>
+<div style="padding-bottom:5%">
+    <tr><td>  <h3>Delete account:</h3></td></tr>
+<form action="/delete" method="post">
+ 
+  <tr><td> <p><input type="submit" id="deleteaccount" name="deleteaccount" value="Delete account"></p></td></tr>
+    
+</form>
+
+
+</div>
+</table>
+
+</div>
+<div style="background-color: #d4d4d4;">
+    <footer style="background-color: #d4d4d4;">
+      <div style="position:relative;background-color:#d4d4d4" class="footer" id="footer">
+        <div class="logo">
+          <p style="font-size: 10pt;"><img src='' width="30" height="30" align="left" style="display: inline-block;">IP tutorials</p>
+        </div>
+        <div class="column">
+          <h3>Pages</h3>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+        </div>
+        <div class="column">
+          <h3>Pages</h3>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+  
+        </div>
+        <div class="column">
+          <h3>Pages</h3>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>

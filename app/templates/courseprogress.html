@@ -1,0 +1,150 @@
+<!doctype html>
+<html> 
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/courseprogress.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Open+Sans&display=swap" rel="stylesheet">
+
+<title> IP tutorials</title>
+</head>
+<body >
+  <div id="nav" >
+        <p><img src=' 'width="30" height="30">IP tutorials</p>
+        <ul>
+            <li style="text-align:right;"> <a href="{{ url_for('studentdashboard') }}"> Home </a></li>
+            <div class="dropdown">
+                <button class="dropbtn">Work
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="{{ url_for('courseprogress') }}">Courses</a>
+                  <a href="{{ url_for('projectprogress') }}">Projects</a>
+                
+                </div></div>
+                <div class="dropdown">
+                    <button class="dropbtn">Other
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                    
+                      <a href="{{ url_for('certificates') }}">Certificates</a>
+                      <a href="{{ url_for('supportpage') }}">Support</a>
+                      <a href="{{ url_for('messages') }}">Messages</a>
+                      <a href="{{ url_for('payment') }}">Payments</a>
+                    </div></div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Account
+                          <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                          <a href="{{ url_for('studentprofile') }}">Profile</a>
+                          <a href="{{ url_for('studentaccount') }}">Account details</a>
+                          <a href="{{ url_for('studentsettings') }}">Settings</a>
+                          <a href="{{ url_for('logout') }}">Log out</a>
+                          
+                        </div></div>
+           
+        </ul>
+    </div>
+ <!-- <div id="background"> -->
+ <section>
+     <div id="header" style="margin-bottom: 10%;">
+<div id="headertext">Courses and progress</div>
+ </div>
+</section  ><div style="margin-bottom:10%;height:800px">
+<div class="left">
+  <table style="margin-left:5%;margin-bottom: 10%;">
+    {% for data in data %}
+      <tr>
+        <td><h3>Course name:</h3></td>
+        <td>{{data.name}}</td>
+       
+ 
+    </tr>
+    <tr>
+      <td><h3>Course description:</h3></td>
+      <td>{{data.description}}</td>
+     
+
+  </tr>
+  <tr>
+    <td ><h3>Chapters:</h3></td>
+    <td>
+     {{data.chapters}}
+       
+    </td>
+   
+
+</tr>
+<tr>
+  <td  ><h3>Progress:</h3></td>
+  <td><div id="myProgress">
+    <div id="myBar"></div>
+  </div>
+  </td>
+ 
+
+</tr>
+<tr><td><button onclick="move()">Finish course</button></td></tr>
+
+  </table>
+  
+  
+</div>
+{% endfor %}
+
+
+ <div  class="right" style="text-align: right" > <img src="{{url_for('static', filename='images/wood-3350571_6402.jpg')}}" height='200' width='300'style="margin-right:5%;margin-left:2%"></div></div>
+<div style="background-color: #d4d4d4;">
+    <footer style="background-color: #d4d4d4;">
+      <div style="position:relative;background-color:#d4d4d4" class="footer" id="footer">
+        <div class="logo">
+          <p style="font-size: 10pt;"><img src=' ' width="30" height="30" align="left" style="display: inline-block;">IP tutorials</p>
+        </div>
+        <div class="column">
+          <h3>Pages</h3>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+        </div>
+        <div class="column">
+          <h3>Pages</h3>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+  
+        </div>
+        <div class="column">
+          <h3>Pages</h3>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+          <p>Link</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+<script>
+var i = 0;
+function move() {
+  if (i == 0) {
+    i = 1;
+    var elem = document.getElementById("myBar");
+    var width = 1;
+    var id = setInterval(frame, 10);
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+        i = 0;
+      } else {
+        width++;
+        elem.style.width = width + "%";
+      }
+    }
+  }
+}
+</script>
+</body>
+</html>
